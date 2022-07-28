@@ -21,3 +21,20 @@ ion-content {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+ion-img{
+  width: 50px;
+}
+ion-col.my-thin-col {
+  flex: 0 0 4px;
+}
+
+ion-text{
+  color: #fff;
+  font-family: 'Itim';
+  font-size: 32px;
+}
+
+ion-button.background{
+  background-color: #242957;
+}

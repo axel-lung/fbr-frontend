@@ -2,10 +2,19 @@
 
 <ion-content>
 
-  <ion-card>
-    <ion-img src="../../../assets/icon/favicon.png"></ion-img>
-    <img src="../../../assets/icon/logo.png">
-  </ion-card>
+  <ion-grid class="ion-justify-content-center">
+    <ion-row class="ion-align-items-center">
+      <ion-col class="my-thin-col">
+        <ion-img src="../../../assets/icon/logo.png"></ion-img>
+      </ion-col>
+      <ion-col>
+        <ion-text>Football BattleRoyale</ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+
+  </ion-grid>
 
   <form (ngSubmit)="login()" [formGroup]="credentials">
     <div class="input-group">
@@ -25,17 +34,8 @@
       </div>
     </div>
 
-    <ion-button type="submit" expand="block" [disabled]="!credentials.valid">Log in</ion-button>
+    <ion-button class="background" type="submit" expand="block" [disabled]="!credentials.valid">Log in</ion-button>
     <ion-button type="button" expand="block" color="light" fill="clear">Not yet a member? Sign up!
-    </ion-button>
-
-    <ion-button type="button" expand="block" color="tertiary">
-      <ion-icon name="logo-google" slot="start"></ion-icon>
-      Sign in with Google
-    </ion-button>
-    <ion-button type="button" expand="block" color="tertiary">
-      <ion-icon name="logo-apple" slot="start"></ion-icon>
-      Sign in with Apple
     </ion-button>
   </form>
 </ion-content>
