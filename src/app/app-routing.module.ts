@@ -31,7 +31,11 @@ const routes: Routes = [
     path: 'tab1',
     loadChildren: () => import('./pages/tab1/tab1.module').then( m => m.Tab1PageModule),
     canLoad: [AuthGuard]
+  },  {
+    path: 'signup',
+    loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
   }
+
 
 
 ];
