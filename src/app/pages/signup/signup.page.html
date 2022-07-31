@@ -1,9 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>signup</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
+  <div class="content">
+    <div class="title">
+      <ion-img src="../../../assets/icon/logo.png"></ion-img>
+      <ion-text>Football BattleRoyale</ion-text>
+    </div>
+    <br><br><br><br><br>
+    <form (ngSubmit)="saveUser()" [formGroup]="userForm">
 
+        <ion-text>Email Address</ion-text>
+        <input required type="email" formControlName="email">
+        <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+          <span *ngIf="email.errors?.required">Email is required</span>
+        </div>
+        <br>
+        <ion-text>Username</ion-text>
+        <input required minlength="3" formControlName="username">
+        <!-- <div *ngIf="(username.dirty || username.touched) && username.errors" class="errors">
+          <span *ngIf="username.errors?.required">Username is required</span>
+          <span *ngIf="username.errors?.minlength">Username must be greter than 2 letters</span>
+        </div> -->
+        <br>
+        <ion-text>Birthday</ion-text>
+        <input type="date" formControlName="birthday">
+        <br>
+        <ion-text>Password</ion-text>
+        <input required minlength="8" maxlength="30" type="password" formControlName="password">
+        <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+          <span *ngIf="password.errors?.required">Password is required</span>
+          <span *ngIf="password.errors?.minlength">Password needs to be 6 characters</span>
+          <span *ngIf="password.errors?.maxlength">Password needs to be less than 30 characters</span>
+        </div>
+        <br><br>
+        <button type="submit" [disabled]="!userForm.valid">Log in</button>
+        <ion-button (click)="login()" type="button" expand="block" color="light" fill="clear">Already a member? Sign in!</ion-button>
+    </form>
+  </div>
 </ion-content>

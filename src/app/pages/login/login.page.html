@@ -10,17 +10,17 @@
     <form (ngSubmit)="login()" [formGroup]="credentials">
 
         <ion-text>Username</ion-text>
-        <input placeholder="username" formControlName="username">
+        <input formControlName="username">
         <br>
         <ion-text>Password</ion-text>
-        <input type="password" placeholder="password" formControlName="password">
+        <input type="password" formControlName="password">
         <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
           <span *ngIf="password.errors?.required">Password is required</span>
           <span *ngIf="password.errors?.minlength">Password needs to be 6 characters</span>
         </div>
         <br><br>
         <button type="submit" [disabled]="!credentials.valid">Log in</button>
-        <ion-button type="button" expand="block" color="light" fill="clear">Not yet a member? Sign up!</ion-button>
+        <ion-button (click)="signup()" type="button" expand="block" color="light" fill="clear">Not yet a member? Sign up!</ion-button>
     </form>
   </div>
 </ion-content>

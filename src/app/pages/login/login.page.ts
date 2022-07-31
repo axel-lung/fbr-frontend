@@ -22,18 +22,14 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.credentials = this.fb.group({
-      username: ['titi', [Validators.required, /*Validators.email*/]],
-      password: ['cityslicka', [Validators.required, Validators.minLength(6)]],
+      username: ['', [Validators.required, /*Validators.email*/]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
   async login() {
-    console.log("test");
-    console.log(this.credentials.value);
     const loading = await this.loadingController.create();
     await loading.present();
-
-
 
     this.authService.login(this.credentials.value).subscribe(
       async (res) => {
@@ -44,7 +40,7 @@ export class LoginPage implements OnInit {
         await loading.dismiss();
         const alert = await this.alertController.create({
           header: 'Login failed',
-          message: res.error.error,
+          message: "Wrong username or password!",
           buttons: ['OK'],
         });
 
@@ -60,5 +56,9 @@ export class LoginPage implements OnInit {
 
   get password() {
     return this.credentials.get('password');
+  }
+
+  signup(){
+    this.router.navigateByUrl('/signup');
   }
 }
