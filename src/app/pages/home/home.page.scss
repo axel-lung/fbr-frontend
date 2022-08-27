@@ -6,7 +6,7 @@ ion-content {
     display: flex;
     justify-content: space-around;
     ion-title {
-      font-family: "Itim";
+      font-family: "Itim", sans-serif;
       font-style: normal;
       font-weight: 400;
       font-size: 32px;
@@ -60,7 +60,7 @@ ion-content {
           width: 100%;
           .gameStatus {
             width: 44%;
-            font-family: "ABeeZee";
+            font-family: "ABeeZee", sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: 12px;
@@ -79,7 +79,7 @@ ion-content {
           }
           .rank {
             width: 44%;
-            font-family: "ABeeZee";
+            font-family: "ABeeZee", sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: 12px;
