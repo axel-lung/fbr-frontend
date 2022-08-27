@@ -1,0 +1,103 @@
+ion-content {
+  --background: #2b3cd0;
+  ion-card {
+    --background: none;
+    box-shadow: none;
+    display: flex;
+    justify-content: space-around;
+    ion-title {
+      font-family: "Itim", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32px;
+      --color: white;
+    }
+    ion-img {
+      width: 42px;
+    }
+  }
+
+  ion-card.pub {
+    height: 80px;
+  }
+
+  ion-card.content {
+    --background: white;
+    border-radius: 40px 40px 0 0;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    ion-card.divider {
+      margin: 0;
+      width: 100%;
+      ion-card {
+        width: 40px;
+        height: 7px;
+        background: #d9d9d9;
+        border-radius: 10px;
+      }
+    }
+    ion-card.partiesContent {
+      width: 100%;
+      margin: 0;
+      flex-direction: column;
+      ion-title{
+        color: black;
+      }
+      ion-list {
+        width: 100vw;
+        padding: 0px 18px;
+        ion-list-header {
+          padding: 0;
+        }
+        ion-item {
+          --background: #e6e6e6;
+          border-radius: 15px;
+          outline: none;
+          width: 100%;
+          .gameStatus {
+            width: 44%;
+            font-family: "ABeeZee", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+          }
+          .verticalLine {
+            width: 1%;
+            height: calc(100% - 5px);
+            margin: 2px 2px 0 0;
+            background: #aeaeae;
+            margin-top: 0;
+            position: relative;
+          }
+          .rank {
+            width: 44%;
+            font-family: "ABeeZee", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+          }
+          .icon {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 40px;
+            color: #2b3cd0;
+          }
+        }
+      }
+    }
+  }
+}

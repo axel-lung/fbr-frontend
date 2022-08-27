@@ -1,0 +1,59 @@
+
+<ion-content>
+  <div class="content">
+    <div class="title">
+      <ion-img src="../../../assets/icon/logo.png"></ion-img>
+      <ion-text>Football BattleRoyale</ion-text>
+    </div>
+    <form (ngSubmit)="saveUser()" [formGroup]="userForm">
+
+        <ion-text>Email Address</ion-text>
+        <input required type="email" formControlName="email">
+        <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+          <span *ngIf="email.errors?.required">Email is required</span>
+          <span *ngIf="email.errors?.email">Please enter a valid address</span>
+        </div>
+        <br>
+        <ion-text>Username</ion-text>
+        <input required minlength="3" formControlName="username">
+        <div *ngIf="(username.dirty || username.touched) && username.errors" class="errors">
+          <span *ngIf="username.errors?.required">Username is required</span>
+          <span *ngIf="username.errors?.minlength">Username must be greter than 2 letters</span>
+        </div>
+        <br>
+        <ion-text>Birthday</ion-text>
+        <input type="date" formControlName="birthday">
+        <div *ngIf="(birthday.dirty || birthday.touched) && birthday.errors" class="errors">
+          <span *ngIf="birthday.errors?.required">Username is required</span>
+        </div>
+        <br>
+        <ion-text>Password</ion-text>
+        <input required minlength="8" maxlength="30" type="password" formControlName="password">
+        <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+          <span *ngIf="password.errors?.required">Password is required</span>
+          <span *ngIf="password.errors?.minlength">Password needs to be 6 characters</span>
+          <span *ngIf="password.errors?.maxlength">Password needs to be less than 30 characters</span>
+        </div>
+        <br>
+        <div class="checkList">
+          <input required type="checkbox" formControlName="checkTerms">
+          <ion-text>J'accepte les termes et conditions liés à cette application.</ion-text>
+        </div>
+        <div *ngIf="(checkTerms.dirty || checkTerms.touched) && checkTerms.errors" class="errors">
+          <span *ngIf="checkTerms.errors?.required">Check this case is required</span>
+        </div>
+        <br>
+        <div class="checkList">
+          <input required type="checkbox" formControlName="check18">
+          <ion-text>Je certifie avoir 18 ans ou plus.</ion-text>
+        </div>
+        <div *ngIf="(check18.dirty || check18.touched) && check18.errors" class="errors">
+          <span *ngIf="check18.errors?.required">Check this case is required</span>
+        </div>
+        <br>
+        <br><br>
+        <button type="submit" [disabled]="!userForm.valid">Sign up</button>
+        <ion-button (click)="login()" type="button" expand="block" color="light" fill="clear">Already a member? Sign in!</ion-button>
+    </form>
+  </div>
+</ion-content>

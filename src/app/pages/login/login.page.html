@@ -1,0 +1,26 @@
+
+
+<ion-content>
+  <div class="content">
+    <div class="title">
+      <ion-img src="../../../assets/icon/logo.png"></ion-img>
+      <ion-text>Football BattleRoyale</ion-text>
+    </div>
+    <br><br><br><br><br>
+    <form (ngSubmit)="login()" [formGroup]="credentials">
+
+        <ion-text>Username</ion-text>
+        <input formControlName="username">
+        <br>
+        <ion-text>Password</ion-text>
+        <input type="password" formControlName="password">
+        <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+          <span *ngIf="password.errors?.required">Password is required</span>
+          <span *ngIf="password.errors?.minlength">Password needs to be 6 characters</span>
+        </div>
+        <br><br>
+        <button type="submit" [disabled]="!credentials.valid">Log in</button>
+        <ion-button (click)="signup()" type="button" expand="block" color="light" fill="clear">Not yet a member? Sign up!</ion-button>
+    </form>
+  </div>
+</ion-content>
