@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API_URL = 'http://213.246.56.242:9001/';
+const API_URL = 'http://localhost:8080/';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -21,7 +21,7 @@ export abstract class RestService<T,ID> {
   }
 
   getAll(): Observable<T[]> {
-    return this._http.get<T[]>(API_URL + this._base, httpOptions)
+    return this._http.get<T[]>(API_URL + this._base + "s", httpOptions)
   }
 
   delete(id: ID): Observable<T> {

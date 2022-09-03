@@ -1,0 +1,44 @@
+<ion-content>
+  <ion-icon name="md-arrow-back"></ion-icon>
+  <ion-card>
+    <div>
+      <ion-title>Game N°{{ id }}</ion-title>
+      <ion-text>En cours</ion-text>
+    </div>
+    <ion-img src="../../../assets/icon/logo.png"></ion-img>
+  </ion-card>
+  <ion-button>S'inscrire</ion-button>
+  <br>
+
+  <ion-card class="content">
+    <ion-card class="divider"><ion-card></ion-card></ion-card>
+    <ion-card class="partiesContent">
+      <ion-card class="parties">
+        <ion-list>
+          <ion-list-header>
+            <ion-title>Total de match : 7</ion-title>
+          </ion-list-header>
+          <ion-text>Match #1</ion-text>
+          <ion-item *ngFor="let match of matches">
+            <div class="gameStatus">
+              <ion-text>{{ match.status }} {{ match.utcDate }}</ion-text>
+              <br />
+              <div class="vs">
+                <ion-text>{{match.homeTeam.name}} 0 </ion-text>
+                <ion-img src="../../../assets/icon/vs.png"></ion-img>
+                <ion-text> 0 Dijon</ion-text>
+              </div>
+              <br />
+              <ion-text>Vous pariez sur Sochaux</ion-text>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    </ion-card>
+  </ion-card>
+</ion-content>
+
+<ion-toolbar>
+  <ion-back-button defaultHref="home"></ion-back-button>
+  <div>PUBBBBBBBB</div>
+</ion-toolbar>

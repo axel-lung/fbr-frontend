@@ -17,8 +17,9 @@ ion-content {
     }
   }
 
-  ion-card.pub {
-    height: 80px;
+  ion-button{
+    display: flex;
+    justify-content: center;
   }
 
   ion-card.content {
@@ -59,15 +60,23 @@ ion-content {
           width: 100%;
           margin-bottom: 8px;
           .gameStatus {
-            width: 44%;
+            width: 100%;
             font-family: "ABeeZee", sans-serif;
             font-style: normal;
             font-weight: 400;
-            font-size: 12px;
             line-height: 14px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            .vs {
+              display: flex;
+              align-items: center;
+              ion-img{
+                margin: 0 5px;
+              }
+            }
           }
           .verticalLine {
             width: 1%;
@@ -99,5 +108,25 @@ ion-content {
         }
       }
     }
+  }
+}
+ion-toolbar{
+  --background: #D9D9D9;
+  --min-height: 0px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  height: 50px;
+  ion-back-button{
+    float: left;
+    height: 50px;
+    width: 50px;
+  }
+  div{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

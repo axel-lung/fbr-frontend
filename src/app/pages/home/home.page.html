@@ -1,26 +1,37 @@
 <ion-content>
   <ion-card>
-    <ion-title>7 août 2022</ion-title>
+    <ion-title>{{ date }}</ion-title>
     <ion-img src="../../../assets/icon/logo.png"></ion-img>
   </ion-card>
 
   <ion-card class="pub"> PUB </ion-card>
+  <button (click)="getStorage()">getstorage</button>
+  <button (click)="setStorage()">setstorage</button>
+  <p>Store : {{ store }}</p>
 
   <ion-card class="content">
     <ion-card class="divider"><ion-card></ion-card></ion-card>
     <ion-card class="partiesContent">
       <ion-card class="parties">
-        <!-- <ion-card-content></ion-card-content> -->
-
+        <ion-list>
+          <ion-list-header>
+            <ion-title>My games</ion-title>
+          </ion-list-header>
+          <ion-item>Item 1</ion-item>
+          <ion-item>Item 1</ion-item>
+          <ion-item>Item 1</ion-item>
+          <ion-item>Item 1</ion-item>
+        </ion-list>
+      </ion-card>
+      <ion-card class="parties">
         <ion-list lines="none">
           <ion-list-header>
-            <ion-title>My Games</ion-title>
+            <ion-title>Available Games</ion-title>
           </ion-list-header>
-          <ion-item >
+          <ion-item *ngFor="let room of rooms">
             <div class="gameStatus">
-              <ion-text>Game mode</ion-text>
-              <ion-text>Classic Game</ion-text>
-              <ion-text>Game Status</ion-text>
+              <ion-text>{{room.name}}</ion-text>
+              <ion-text>No cash Price</ion-text>
               <ion-text>Running</ion-text>
             </div>
             <div class="verticalLine"></div>
@@ -29,24 +40,9 @@
               <ion-text>#2 him</ion-text>
               <ion-text>#3 him</ion-text>
             </div>
-              <ion-icon class="icon" name="arrow-forward"></ion-icon>
+            <ion-icon class="icon" name="arrow-forward" (click)="toRoom(room.id)" ></ion-icon>
           </ion-item>
-          <br>
-          <ion-item>Item 1</ion-item>
-          <ion-item>Item 1</ion-item>
-          <ion-item>Item 1</ion-item>
-        </ion-list>
-      </ion-card>
-
-      <ion-card class="parties">
-        <ion-list>
-          <ion-list-header>
-            <ion-title>Available Games</ion-title>
-          </ion-list-header>
-          <ion-item>Item 1</ion-item>
-          <ion-item>Item 1</ion-item>
-          <ion-item>Item 1</ion-item>
-          <ion-item>Item 1</ion-item>
+          <br />
         </ion-list>
       </ion-card>
     </ion-card>
