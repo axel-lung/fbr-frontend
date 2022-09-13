@@ -21,7 +21,7 @@ export class RoomPage implements OnInit {
   room: Room;
   matches: Match[];
   userId: number;
-  isUserInRoom: Boolean;
+  isUserInRoom: boolean;
   isBetOnMatch: Map<number, boolean> = new Map<number, boolean>;
   bets: Map<number, Bet> = new Map<number, Bet>;
 
@@ -51,7 +51,7 @@ export class RoomPage implements OnInit {
       .isUserInRoom(this.id, this.userId)
       .toPromise()
       .then((data) => {
-        this.isUserInRoom = data;
+        this.isUserInRoom = data.valueOf();
       });
 
     await this.getBet();
@@ -106,13 +106,12 @@ export class RoomPage implements OnInit {
   }
 
   async getRoom(id: number): Promise<Room> {
-    return await this.roomService.findOne(id).toPromise();
+    return this.roomService.findOne(id).toPromise();
   }
 
   async getBet() {
     await this.betService.start();
-    for (let i = 0; i < this.matches.length; i++) {
-      const match = this.matches[i];
+    for (let match of this.matches) {
 
       this.betService
         .findBetByUserMatchRoom(this.userId, match.id, this.room.id)

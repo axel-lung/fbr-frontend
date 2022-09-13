@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { map, tap, switchMap } from 'rxjs/operators';
-import { BehaviorSubject, from, Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 import { Storage } from '@capacitor/storage';

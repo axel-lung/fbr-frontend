@@ -12,8 +12,8 @@ export class UserService extends RestService<User, number> {
     super(http, `api/user/save`);
   }
 
-  isUserInRoom(roomId: number, userId: number): Observable<Boolean>{
-    return this._http.get<Boolean>(this.getAPI_URL() + "api/room/"+ roomId +"/user/"+ userId, this.getHttpOptions());
+  isUserInRoom(roomId: number, userId: number): Observable<boolean>{
+    return this._http.get<boolean>(this.getAPI_URL() + "api/room/"+ roomId +"/user/"+ userId, this.getHttpOptions());
   }
 
 }

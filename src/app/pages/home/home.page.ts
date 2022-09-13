@@ -11,7 +11,7 @@ import { RoomService } from 'src/app/services/room.service';
 })
 export class HomePage implements OnInit {
   rooms: Room[];
-  date: String;
+  date: string;
   accessToken: string;
 
   constructor(private roomService: RoomService, private router: Router, private storage: NativeStorage) {
@@ -33,7 +33,7 @@ export class HomePage implements OnInit {
   }
 
   async getRooms(): Promise<Room[]> {
-		return await this.roomService.getAll().toPromise();
+		return this.roomService.getAll().toPromise();
 	}
 
   toRoom(id: number){

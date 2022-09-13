@@ -5,7 +5,7 @@ import { User } from "./user";
 
 export class Bet {
   id: number | null;
-  hasWin: Boolean;
+  hasWin: boolean;
   team: Team;
   matche: Match;
   user: User;
@@ -13,7 +13,7 @@ export class Bet {
 
   constructor(
     id: number | null,
-    hasWin: Boolean,
+    hasWin: boolean,
     team: Team,
     matche: Match,
     user: User,
