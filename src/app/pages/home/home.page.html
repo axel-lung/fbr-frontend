@@ -1,52 +1,29 @@
 <ion-content>
   <ion-card>
-    <ion-title>7 août 2022</ion-title>
+    <ion-title>{{ date }}</ion-title>
     <ion-img src="../../../assets/icon/logo.png"></ion-img>
   </ion-card>
-
-  <ion-card class="pub"> PUB </ion-card>
 
   <ion-card class="content">
     <ion-card class="divider"><ion-card></ion-card></ion-card>
     <ion-card class="partiesContent">
       <ion-card class="parties">
-        <!-- <ion-card-content></ion-card-content> -->
-
         <ion-list lines="none">
-          <ion-list-header>
-            <ion-title>My Games</ion-title>
-          </ion-list-header>
-          <ion-item >
-            <div class="gameStatus">
-              <ion-text>Game mode</ion-text>
-              <ion-text>Classic Game</ion-text>
-              <ion-text>Game Status</ion-text>
-              <ion-text>Running</ion-text>
-            </div>
-            <div class="verticalLine"></div>
-            <div class="rank">
-              <ion-text>#1 Me</ion-text>
-              <ion-text>#2 him</ion-text>
-              <ion-text>#3 him</ion-text>
-            </div>
-              <ion-icon class="icon" name="arrow-forward"></ion-icon>
-          </ion-item>
-          <br>
-          <ion-item>Item 1</ion-item>
-          <ion-item>Item 1</ion-item>
-          <ion-item>Item 1</ion-item>
-        </ion-list>
-      </ion-card>
-
-      <ion-card class="parties">
-        <ion-list>
           <ion-list-header>
             <ion-title>Available Games</ion-title>
           </ion-list-header>
-          <ion-item>Item 1</ion-item>
-          <ion-item>Item 1</ion-item>
-          <ion-item>Item 1</ion-item>
-          <ion-item>Item 1</ion-item>
+          <ion-item *ngFor="let room of rooms">
+            <div class="gameStatus">
+              <ion-text>Game: {{room.name}}</ion-text>
+            </div>
+            <div class="verticalLine"></div>
+            <div class="rank">
+              <ion-text>From {{ room.dateFrom | date:'mediumDate' }}</ion-text>
+              <ion-text>To {{ room.dateTo | date:'medium' }}</ion-text>
+            </div>
+            <ion-icon class="icon" name="arrow-forward" (click)="toRoom(room.id)" ></ion-icon>
+          </ion-item>
+          <br />
         </ion-list>
       </ion-card>
     </ion-card>

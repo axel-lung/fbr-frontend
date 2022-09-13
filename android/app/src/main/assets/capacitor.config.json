@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "ionic-template",
+	"appId": "fr.alng.footbr",
+	"appName": "Football BR",
 	"webDir": "www",
 	"bundledWebRuntime": false
 }

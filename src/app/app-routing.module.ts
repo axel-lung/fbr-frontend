@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tab1',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
   {
@@ -36,7 +36,13 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
     canLoad: [AuthGuard]
+  },
+  {
+    path: 'room',
+    loadChildren: () => import('./pages/room/room.module').then( m => m.RoomPageModule),
+    canLoad: [AuthGuard]
   }
+
 
 
 
