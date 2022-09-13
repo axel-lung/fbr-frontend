@@ -4,25 +4,9 @@
     <ion-img src="../../../assets/icon/logo.png"></ion-img>
   </ion-card>
 
-  <ion-card class="pub"> PUB </ion-card>
-  <button (click)="getStorage()">getstorage</button>
-  <button (click)="setStorage()">setstorage</button>
-  <p>Store : {{ store }}</p>
-
   <ion-card class="content">
     <ion-card class="divider"><ion-card></ion-card></ion-card>
     <ion-card class="partiesContent">
-      <ion-card class="parties">
-        <ion-list>
-          <ion-list-header>
-            <ion-title>My games</ion-title>
-          </ion-list-header>
-          <ion-item>Item 1</ion-item>
-          <ion-item>Item 1</ion-item>
-          <ion-item>Item 1</ion-item>
-          <ion-item>Item 1</ion-item>
-        </ion-list>
-      </ion-card>
       <ion-card class="parties">
         <ion-list lines="none">
           <ion-list-header>
@@ -30,15 +14,12 @@
           </ion-list-header>
           <ion-item *ngFor="let room of rooms">
             <div class="gameStatus">
-              <ion-text>{{room.name}}</ion-text>
-              <ion-text>No cash Price</ion-text>
-              <ion-text>Running</ion-text>
+              <ion-text>Game: {{room.name}}</ion-text>
             </div>
             <div class="verticalLine"></div>
             <div class="rank">
-              <ion-text>#1 Me</ion-text>
-              <ion-text>#2 him</ion-text>
-              <ion-text>#3 him</ion-text>
+              <ion-text>From {{ room.dateFrom | date:'mediumDate' }}</ion-text>
+              <ion-text>To {{ room.dateTo | date:'medium' }}</ion-text>
             </div>
             <ion-icon class="icon" name="arrow-forward" (click)="toRoom(room.id)" ></ion-icon>
           </ion-item>

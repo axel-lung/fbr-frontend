@@ -1,5 +1,6 @@
 ion-content {
   --background: #2b3cd0;
+
   ion-card {
     --background: none;
     box-shadow: none;
@@ -15,6 +16,13 @@ ion-content {
     ion-img {
       width: 42px;
     }
+  }
+
+  #gameInfo{
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
   }
 
   ion-button{
@@ -76,6 +84,9 @@ ion-content {
               ion-img{
                 margin: 0 5px;
               }
+            }
+            #betInfo{
+              color: #3880ff;
             }
           }
           .verticalLine {

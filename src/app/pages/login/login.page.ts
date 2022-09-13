@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginPage implements OnInit {
     private authService: AuthenticationService,
     private alertController: AlertController,
     private router: Router,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private storage: NativeStorage
   ) {}
 
   ngOnInit() {
@@ -34,6 +36,7 @@ export class LoginPage implements OnInit {
     this.authService.login(this.credentials.value).subscribe(
       async (res) => {
         await loading.dismiss();
+        await this.refreshToken(this.authService.refresh_token.getValue());
         this.router.navigateByUrl('/home', { replaceUrl: true });
       },
       async (res) => {
@@ -47,6 +50,10 @@ export class LoginPage implements OnInit {
         await alert.present();
       }
     );
+  }
+
+  async refreshToken(refreshToken: string) {
+    this.authService.refreshToken(refreshToken).subscribe();
   }
 
   // Easy access for form fields

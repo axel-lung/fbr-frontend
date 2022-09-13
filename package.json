@@ -1,7 +1,7 @@
 {
-  "name": "ionic-template",
+  "name": "Football BR",
   "version": "0.0.1",
-  "author": "Ionic Framework",
+  "author": "Lexal",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",

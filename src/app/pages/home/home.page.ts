@@ -12,7 +12,7 @@ import { RoomService } from 'src/app/services/room.service';
 export class HomePage implements OnInit {
   rooms: Room[];
   date: String;
-  store: string;
+  accessToken: string;
 
   constructor(private roomService: RoomService, private router: Router, private storage: NativeStorage) {
     let today = new Date();
@@ -21,21 +21,13 @@ export class HomePage implements OnInit {
     let yyyy = today.getFullYear();
 
     this.date = dd + ' / ' + mm + ' / ' + yyyy;
-
-
-
-
   }
 
   async ngOnInit() {
+    await this.roomService.start();
     this.getRooms().then(
       data => {
         this.rooms = data;
-      }
-    ).catch(
-      err => {
-        console.log(err);
-
       }
     );
   }
@@ -48,22 +40,4 @@ export class HomePage implements OnInit {
     this.router.navigateByUrl('/room');
     this.roomService.setRoomId(id);
   }
-
-  getStorage(): void{
-    this.storage.getItem('myitem')
-    .then(
-      data =>this.store = data,
-      error => console.error(error)
-    );
-  }
-
-  setStorage(): void{
-    this.storage.setItem('myitem', {property: 'AXEL', anotherProperty: 'anotherValue'})
-    .then(
-      () => console.log('Stored item!'),
-      error => console.error('Error storing item', error)
-    );
-  }
-
-
 }

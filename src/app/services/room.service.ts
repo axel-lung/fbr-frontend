@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Room } from '../models/room';
 import { RestService } from './rest.service';
 
@@ -20,6 +20,7 @@ export class RoomService extends RestService<Room, number> {
     this.roomId.next(id);
   }
 
-
-
+  addUserInRoom(roomId: number, userId: number, body: HttpParams): Observable<Room>{
+    return this._http.post<Room>(this.getAPI_URL() + "api/room/adduser", {userId: userId, roomId: roomId}, this.getHttpOptions());
+  }
 }
