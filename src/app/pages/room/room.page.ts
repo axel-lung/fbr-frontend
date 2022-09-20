@@ -76,7 +76,6 @@ export class RoomPage implements OnInit {
       .save(
         new Bet(
           null,
-          false,
           new Team(teamId, null, null, null, null),
           new Match(
             matchId,

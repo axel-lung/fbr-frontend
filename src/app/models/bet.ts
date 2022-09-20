@@ -13,14 +13,13 @@ export class Bet {
 
   constructor(
     id: number | null,
-    hasWin: boolean,
     team: Team,
     matche: Match,
     user: User,
     room: Room
   ) {
     this.id = id;
-    this.hasWin = hasWin;
+    this.hasWin = null;
     this.team = team;
     this.matche = matche;
     this.user = user;
