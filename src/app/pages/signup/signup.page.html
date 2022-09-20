@@ -37,7 +37,7 @@
         <br>
         <div class="checkList">
           <input required type="checkbox" formControlName="checkTerms">
-          <ion-text>J'accepte les termes et conditions liés à cette application.</ion-text>
+          <ion-text>J'accepte les termes et conditions liés à cette application. <a routerLink="/cgv">Voir plus</a></ion-text>
         </div>
         <div *ngIf="(checkTerms.dirty || checkTerms.touched) && checkTerms.errors" class="errors">
           <span *ngIf="checkTerms.errors?.required">Check this case is required</span>

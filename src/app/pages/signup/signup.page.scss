@@ -3,6 +3,10 @@ ion-content {
   --padding-end: 10%;
   --background: #2B3CD0;
 
+  a{
+    color: var(--ion-color-primary);
+  }
+
   div.content{
     display: flex;
     justify-content: center;

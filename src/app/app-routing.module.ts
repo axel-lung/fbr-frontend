@@ -41,7 +41,11 @@ const routes: Routes = [
     path: 'room',
     loadChildren: () => import('./pages/room/room.module').then( m => m.RoomPageModule),
     canLoad: [AuthGuard]
+  },  {
+    path: 'cgv',
+    loadChildren: () => import('./pages/cgv/cgv.module').then( m => m.CgvPageModule)
   }
+
 
 
 
