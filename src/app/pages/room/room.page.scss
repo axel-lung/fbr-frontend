@@ -1,5 +1,5 @@
 ion-content {
-  --background: #2b3cd0;
+  --background: var(--first-color);
 
   ion-card {
     --background: none;
@@ -114,7 +114,7 @@ ion-content {
             justify-content: center;
             height: 100%;
             font-size: 40px;
-            color: #2b3cd0;
+            color: var(--first-color);
           }
         }
       }

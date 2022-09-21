@@ -1,8 +1,7 @@
 ion-content {
   --padding-start: 10%;
   --padding-end: 10%;
-  --background: #2B3CD0;
-
+  --background: var(--first-color);
   div.content{
     display: flex;
     justify-content: center;
@@ -46,7 +45,7 @@ ion-content {
         margin-left: 5%;
       }
       button{
-        background-color: #242957;
+        background-color: black;
         color: #fff;
         font-family: 'Rubik', sans-serif;
         border-radius: 15px;
