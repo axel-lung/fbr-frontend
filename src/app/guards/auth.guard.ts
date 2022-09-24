@@ -11,11 +11,17 @@ export class AuthGuard implements CanLoad {
   constructor(private authService: AuthenticationService, private router: Router) { }
 
   canLoad(): Observable<boolean> {
-    return this.authService.isAuthenticated.pipe(
+
+    return this.authService.accessToken.pipe(
       filter(val => val !== null), // Filter out initial Behaviour subject value
       take(1), // Otherwise the Observable doesn't complete!
-      map(isAuthenticated => {
-        if (isAuthenticated) {
+      map(accessToken => {
+        console.log("aT"+accessToken);
+
+        console.log("return "+ !this.authService.jwtHelperService.isTokenExpired(accessToken));
+        if (!this.authService.jwtHelperService.isTokenExpired(accessToken)) {
+
+
           return true;
         } else {
           this.router.navigateByUrl('/login')

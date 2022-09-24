@@ -37,7 +37,8 @@ export class LoginPage implements OnInit {
       async (res) => {
         await loading.dismiss();
         await this.refreshToken(this.authService.refresh_token.getValue());
-        this.router.navigateByUrl('/home', { replaceUrl: true });
+
+
       },
       async (res) => {
         await loading.dismiss();

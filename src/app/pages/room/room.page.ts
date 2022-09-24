@@ -43,8 +43,8 @@ export class RoomPage implements OnInit {
       this.matches = data.matches;
     });
 
-    await this.storage.getItem('userid').then((data) => {
-      this.userId = data.userId;
+    await this.storage.getItem('USER').then((data) => {
+      this.userId = data.USER_ID;
     });
 
     this.userService
