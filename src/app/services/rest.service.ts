@@ -22,11 +22,6 @@ export abstract class RestService<T, ID> {
   }
 
   save(t: T): Observable<T> {
-    console.log("url "+API_URL + this._base);
-    console.log("t "+ t.valueOf());
-    console.log("httpoptions "+ httpOptions.headers);
-
-
     return this._http.post<T>(API_URL + this._base, t, httpOptions);
   }
 
@@ -47,8 +42,8 @@ export abstract class RestService<T, ID> {
   }
 
   async getStorage(): Promise<any> {
-    await this.storage.getItem('tokens').then(
-      (data) => (this.token = data.access_token),
+    await this.storage.getItem('TOKENS').then(
+      (data) => (this.token = data.ACCESS_TOKEN),
       (error) => console.error(error)
     );
   }
