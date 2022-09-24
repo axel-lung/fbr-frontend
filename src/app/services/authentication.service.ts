@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { map, tap } from 'rxjs/operators';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
@@ -17,7 +17,6 @@ const TOKEN_KEY = 'secret';
 export class AuthenticationService {
   // Init with null to filter out the first value in a guard!
   accessToken: BehaviorSubject<string> = new BehaviorSubject<string>(null);
-  refresh_token: BehaviorSubject<string> = new BehaviorSubject<string>(null);
   jwtHelperService: JwtHelperService;
 
   constructor(
@@ -31,8 +30,6 @@ export class AuthenticationService {
 
   async loadToken() {
     const token = await this.getAccessToken();
-    console.log("accessToken "+token);
-
     this.accessToken.next(token);
   }
 
@@ -43,17 +40,14 @@ export class AuthenticationService {
 
     return this.http.post(environment.apiUrl + `api/login`, body).pipe(
       map((data: any) => {
-
-        this.refresh_token.next(data.refresh_token);
         this.storage
           .setItem('TOKENS', {
             ACCESS_TOKEN: data.access_token,
             REFRESH_TOKEN: data.refresh_token,
           })
           .then(
-            (success) => {
+            () => {
               this.accessToken.next(data.access_token);
-
             }
           ).finally(
             () => {
@@ -62,22 +56,6 @@ export class AuthenticationService {
           );
       })
     );
-  }
-
-  refreshToken(token: string): Observable<any> {
-    let httpOptions = {
-      headers: new HttpHeaders({
-        Authorization: 'Bearer ' + token,
-      }),
-    };
-
-    return this.http
-      .post(environment.apiUrl + `api/token/refresh`, null, httpOptions)
-      .pipe(
-        map((data: any) => {
-          this.storage.setItem('USER', { USER_ID: data.id });
-        })
-      );
   }
 
   logout(): Promise<void> {
