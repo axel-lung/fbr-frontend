@@ -94,7 +94,7 @@ export class RoomPage implements OnInit {
             null
           ),
           new User(this.userId, null, null, null, null, null),
-          new Room(this.room.id, null, null, null, null, null, null, null)
+          new Room(this.room.id, null, null, null, null, null, null, null, null)
         )
       )
       .subscribe(

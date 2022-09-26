@@ -8,6 +8,7 @@ export class Room {
   dateTo: Date;
   balance: number;
   isCashPrice: boolean;
+  status: string;
   matches: Match[];
 
   constructor(
@@ -18,6 +19,7 @@ export class Room {
     dateTo: Date,
     balance: number,
     isCashPrice: boolean,
+    status: string,
     matches: Match[]
   ) {
     this.id = id;
@@ -27,6 +29,7 @@ export class Room {
     this.dateTo = dateTo;
     this.balance = balance;
     this.isCashPrice = isCashPrice;
+    this.status = status;
     this.matches = matches;
   }
 }
