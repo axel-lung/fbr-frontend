@@ -10,6 +10,10 @@ import { User } from 'src/app/models/user';
 import { BetService } from 'src/app/services/bet.service';
 import { RoomService } from 'src/app/services/room.service';
 import { UserService } from 'src/app/services/user.service';
+import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
+import { IonicSlides } from '@ionic/angular';
+SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
+
 
 @Component({
   selector: 'app-room',
@@ -24,6 +28,9 @@ export class RoomPage implements OnInit {
   isUserInRoom: boolean;
   isBetOnMatch: Map<number, boolean> = new Map<number, boolean>;
   bets: Map<number, Bet> = new Map<number, Bet>;
+  slideOpts = {
+    initialSlide: 0
+  };
 
   constructor(
     private roomService: RoomService,
@@ -45,6 +52,7 @@ export class RoomPage implements OnInit {
 
     await this.storage.getItem('USER').then((data) => {
       this.userId = data.USER_ID;
+
     });
 
     this.userService
@@ -93,7 +101,7 @@ export class RoomPage implements OnInit {
             null,
             null
           ),
-          new User(this.userId, null, null, null, null, null),
+          new User(this.userId, null, null, null, null, null, null),
           new Room(this.room.id, null, null, null, null, null, null, null, null)
         )
       )

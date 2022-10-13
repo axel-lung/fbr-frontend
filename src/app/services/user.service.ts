@@ -9,7 +9,7 @@ import { RestService } from './rest.service';
 })
 export class UserService extends RestService<User, number> {
   constructor(protected http: HttpClient) {
-    super(http, `api/user/save`);
+    super(http, `api/user`);
   }
 
   isUserInRoom(roomId: number, userId: number): Observable<boolean>{

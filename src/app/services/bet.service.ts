@@ -9,7 +9,7 @@ import { RestService } from './rest.service';
 })
 export class BetService extends RestService<Bet, number> {
   constructor(protected http: HttpClient) {
-    super(http, `api/bet/save`)
+    super(http, `api/bet`)
    }
 
    findBetByUserMatchRoom(userId: number, matchId: number, roomId: number): Observable<Bet>{

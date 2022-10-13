@@ -1,44 +1,56 @@
+<ion-header>
+  <ion-img id="zizou" src="../../../assets/football-player.png"></ion-img>
+  <ion-card-header>
+    <ion-card-title>Game {{ room?.name }}</ion-card-title>
+    <ion-text id="created" *ngIf="room?.status == 'CREATED'">{{ room?.status }}</ion-text>
+    <ion-text id="playing" *ngIf="room?.status == 'PLAYING'">{{ room?.status }}</ion-text>
+    <ion-text id="finished" *ngIf="room?.status == 'FINISHED'">{{ room?.status }}</ion-text>
+  </ion-card-header>
+  <div>
+    <ion-button *ngIf="!isUserInRoom" (click)="addUserInRoom()">Join the game</ion-button>
+    <ion-text id="gameInfo" *ngIf="isUserInRoom">You are playing this game</ion-text>
+  </div>
+</ion-header>
 <ion-content>
-  <ion-icon name="md-arrow-back"></ion-icon>
-  <ion-card>
-    <div>
-      <ion-title>Game: {{ room?.name }}</ion-title>
-      <ion-text>Playing</ion-text>
-    </div>
-    <ion-img src="../../../assets/icon/logo.png"></ion-img>
-  </ion-card>
-  <ion-button *ngIf="!isUserInRoom" (click)="addUserInRoom()">Join the game</ion-button>
-  <ion-text id="gameInfo" *ngIf="isUserInRoom">You are a player of this game</ion-text>
-  <br>
-
-  <ion-card class="content">
-    <ion-card class="divider"><ion-card></ion-card></ion-card>
-    <ion-card class="partiesContent">
-      <ion-card class="parties">
-        <ion-list>
-          <ion-item *ngFor="let match of matches;let indexOfelement=index">
-            <div class="gameStatus">
-              <ion-text>{{ match.status }} {{ match.utcDate | date:'mediumDate' }}</ion-text>
-              <br />
-              <div class="vs">
-                <ion-text>{{match.homeTeam.tla}} {{match.homeScore}} </ion-text>
-                <ion-img src="../../../assets/icon/vs.png"></ion-img>
-                <ion-text> {{match.awayScore}} {{match.awayTeam.tla}}</ion-text>
-              </div>
-              <br />
-              <ion-button *ngIf="isUserInRoom && !isBetOnMatch.get(match.id) && match.status == 'TIMED'" (click)="addBet(match.homeTeam.id, match.id)">Bet on {{match.homeTeam.shortName}}</ion-button>
-              <ion-button *ngIf="isUserInRoom && !isBetOnMatch.get(match.id) && match.status == 'TIMED'" (click)="addBet(match.awayTeam.id, match.id)">Bet on {{match.awayTeam.shortName}}</ion-button>
-              <ion-button *ngIf="isUserInRoom && !isBetOnMatch.get(match.id) && match.status == 'TIMED'" (click)="addBet(2, match.id)">Bet DRAW</ion-button>
-              <ion-text id="betInfo" *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && bets.get(match.id).team.id != 2">You bet on {{ bets.get(match.id).team.name }}</ion-text>
-              <ion-text id="betInfo" *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && bets.get(match.id).team.id == 2">You bet DRAW</ion-text>
-              <ion-text id="betInfo" *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && bets.get(match.id).hasWin">You have won your bet</ion-text>
-              <ion-text id="betInfo" *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && !bets.get(match.id).hasWin && match.status === 'FINISHED'">You don't have won your bet</ion-text>
-            </div>
-          </ion-item>
-        </ion-list>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let match of matches;let indexOfelement=index">
+      <ion-card>
+        <ion-card-title>{{ match.competition.name }}</ion-card-title>
+        <br>
+        <ion-card-content id="matchOverview">
+          <div>
+            <ion-img src="{{ match.homeTeam.crest }}"></ion-img>
+            <ion-text>{{ match.homeTeam.name }}</ion-text>
+          </div>
+          <div>
+            <ion-text *ngIf="match.status == 'TIMED'">{{ match.utcDate | date:'dd/MM/yyyy'}}</ion-text>
+            <ion-text id="hour" *ngIf="match.status == 'TIMED'">{{ match.utcDate | date:'HH:mm'}}</ion-text>
+            <ion-text *ngIf="match.status == 'PLAYING'">PLAYING</ion-text>
+            <ion-text *ngIf="match.status == 'IN_PLAY'">{{ match.utcDate | date:'dd/MM/yyyy'}}</ion-text>
+            <ion-text id="hour" *ngIf="match.status == 'IN_PLAY'">{{ match.utcDate | date:'HH:mm'}}</ion-text>
+            <ion-text id="hour" *ngIf="match.status == 'IN_PLAY'">{{match.homeScore}} - {{match.awayScore}}</ion-text>
+            <ion-text id="hour" *ngIf="match.status == 'IN_PLAY'">PLAYING</ion-text>
+            <ion-text *ngIf="match.status == 'FINISHED'">{{ match.utcDate | date:'dd/MM/yyyy'}}</ion-text>
+            <ion-text id="hour" *ngIf="match.status == 'FINISHED'">{{ match.utcDate | date:'HH:mm'}}</ion-text>
+            <ion-text id="hour" *ngIf="match.status == 'FINISHED'">{{match.homeScore}} - {{match.awayScore}}</ion-text>
+            <ion-text *ngIf="match.status == 'FINISHED'">FINISHED</ion-text>
+          </div>
+          <div>
+            <ion-img src="{{ match.awayTeam.crest }}"></ion-img>
+            <ion-text>{{ match.awayTeam.name }}</ion-text>
+          </div>
+        </ion-card-content>
+        <br>
+          <ion-button *ngIf="isUserInRoom && !isBetOnMatch.get(match.id) && match.status == 'TIMED'" (click)="addBet(match.homeTeam.id, match.id)">Bet on {{match.homeTeam.shortName}}</ion-button>
+          <ion-button *ngIf="isUserInRoom && !isBetOnMatch.get(match.id) && match.status == 'TIMED'" (click)="addBet(match.awayTeam.id, match.id)">Bet on {{match.awayTeam.shortName}}</ion-button>
+          <ion-button *ngIf="isUserInRoom && !isBetOnMatch.get(match.id) && match.status == 'TIMED'" (click)="addBet(2, match.id)">Bet DRAW</ion-button>
+          <ion-text id="betInfo" *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && bets.get(match.id).team.id != 2">You bet on {{ bets.get(match.id).team.name }}</ion-text>
+          <ion-text id="betInfo" *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && bets.get(match.id).team.id == 2">You bet DRAW</ion-text>
+          <ion-text id="betInfo" *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && bets.get(match.id).hasWin">You have won your bet</ion-text>
+          <ion-text id="betInfo" *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && !bets.get(match.id).hasWin && match.status === 'FINISHED'">You don't have won your bet</ion-text>
       </ion-card>
-    </ion-card>
-  </ion-card>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
 
 <ion-toolbar>

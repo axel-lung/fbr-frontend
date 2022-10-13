@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -17,6 +17,7 @@ const TOKEN_KEY = 'secret';
 export class AuthenticationService {
   // Init with null to filter out the first value in a guard!
   accessToken: BehaviorSubject<string> = new BehaviorSubject<string>(null);
+  refreshToken: BehaviorSubject<string> = new BehaviorSubject<string>(null);
   jwtHelperService: JwtHelperService;
 
   constructor(
@@ -48,9 +49,11 @@ export class AuthenticationService {
           .then(
             () => {
               this.accessToken.next(data.access_token);
+              this.refreshToken.next(data.refresh_token);
             }
           ).finally(
             () => {
+              this.getRefreshToken(this.refreshToken.getValue()).subscribe();
               this.router.navigateByUrl('/home');
             }
           );
@@ -60,6 +63,21 @@ export class AuthenticationService {
 
   logout(): Promise<void> {
     return Storage.remove({ key: TOKEN_KEY });
+  }
+
+  getRefreshToken(token: string): Observable<any>{
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer "+token
+      }),
+    };
+
+    return this.http.post(environment.apiUrl+`api/token/refresh`, null, httpOptions).pipe(
+      map((data: any) => {
+        this.refreshToken.next(data.refresh_token);
+        this.storage.setItem('USER', {USER_ID: data.id});
+      })
+    )
   }
 
   setStorage(token: string, refreshToken: string): void {
