@@ -22,7 +22,7 @@ export abstract class RestService<T, ID> {
   }
 
   save(t: T): Observable<T> {
-    return this._http.post<T>(API_URL + this._base, t, httpOptions);
+    return this._http.post<T>(API_URL + this._base + '/save', t, httpOptions);
   }
 
   update(id: ID, t: T): Observable<T> {

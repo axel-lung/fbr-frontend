@@ -51,7 +51,6 @@ export class RoomPage implements OnInit {
     });
 
     await this.storage.getItem('USER').then((data) => {
-      console.log("USER "+data.USER_ID);
       this.userId = data.USER_ID;
 
     });
@@ -102,7 +101,7 @@ export class RoomPage implements OnInit {
             null,
             null
           ),
-          new User(this.userId, null, null, null, null, null),
+          new User(this.userId, null, null, null, null, null, null),
           new Room(this.room.id, null, null, null, null, null, null, null, null)
         )
       )
@@ -132,11 +131,6 @@ export class RoomPage implements OnInit {
             }else{
               this.isBetOnMatch.set(match.id, false);
             }
-          }
-        ).catch(
-          (err) => {
-            console.log("ERROR "+err);
-
           }
         );
     }

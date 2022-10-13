@@ -26,9 +26,14 @@
             <ion-text *ngIf="match.status == 'TIMED'">{{ match.utcDate | date:'dd/MM/yyyy'}}</ion-text>
             <ion-text id="hour" *ngIf="match.status == 'TIMED'">{{ match.utcDate | date:'HH:mm'}}</ion-text>
             <ion-text *ngIf="match.status == 'PLAYING'">PLAYING</ion-text>
-            <ion-text id="hour" *ngIf="match.status == 'PLAYING'">{{match.awayScore}} - {{match.homeScore}}</ion-text>
+            <ion-text *ngIf="match.status == 'IN_PLAY'">{{ match.utcDate | date:'dd/MM/yyyy'}}</ion-text>
+            <ion-text id="hour" *ngIf="match.status == 'IN_PLAY'">{{ match.utcDate | date:'HH:mm'}}</ion-text>
+            <ion-text id="hour" *ngIf="match.status == 'IN_PLAY'">{{match.homeScore}} - {{match.awayScore}}</ion-text>
+            <ion-text id="hour" *ngIf="match.status == 'IN_PLAY'">PLAYING</ion-text>
+            <ion-text *ngIf="match.status == 'FINISHED'">{{ match.utcDate | date:'dd/MM/yyyy'}}</ion-text>
+            <ion-text id="hour" *ngIf="match.status == 'FINISHED'">{{ match.utcDate | date:'HH:mm'}}</ion-text>
+            <ion-text id="hour" *ngIf="match.status == 'FINISHED'">{{match.homeScore}} - {{match.awayScore}}</ion-text>
             <ion-text *ngIf="match.status == 'FINISHED'">FINISHED</ion-text>
-            <ion-text id="hour" *ngIf="match.status == 'FINISHED'">{{match.awayScore}} - {{match.homeScore}}</ion-text>
           </div>
           <div>
             <ion-img src="{{ match.awayTeam.crest }}"></ion-img>

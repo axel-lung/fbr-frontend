@@ -74,7 +74,6 @@ export class AuthenticationService {
 
     return this.http.post(environment.apiUrl+`api/token/refresh`, null, httpOptions).pipe(
       map((data: any) => {
-        console.log("ID"+data.id);
         this.refreshToken.next(data.refresh_token);
         this.storage.setItem('USER', {USER_ID: data.id});
       })

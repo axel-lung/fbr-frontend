@@ -44,7 +44,7 @@ export class SignupPage {
     let roles = new Array<Role>();
     roles.push(new Role(1, "ROLE_USER"));
     this.userService
-      .save(new User(null, username, password, email, birthday, roles))
+      .save(new User(null, username, password, email, birthday, roles, null))
       .subscribe(
         async (data) => {
           this.router.navigateByUrl('/login', { replaceUrl: true });

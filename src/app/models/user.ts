@@ -1,4 +1,5 @@
 import { Role } from "./role";
+import { Room } from "./room";
 
 export class User {
   id: number | null;
@@ -7,6 +8,7 @@ export class User {
   email: string;
   birthday: Date;
   roles: Role[];
+  rooms: Room[] | null;
 
   constructor(
     id: number | null,
@@ -14,7 +16,8 @@ export class User {
     password: string,
     email: string,
     birthday: Date,
-    roles: Role[]
+    roles: Role[],
+    rooms: Room[]
   ) {
     this.id = id;
     this.username = username;
@@ -22,5 +25,6 @@ export class User {
     this.email = email;
     this.birthday = birthday;
     this.roles = roles;
+    this.rooms = rooms;
   }
 }

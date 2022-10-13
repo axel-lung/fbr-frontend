@@ -1,46 +1,51 @@
 <ion-content>
   <ion-card>
-    <ion-title>{{ date }}</ion-title>
+    <ion-title>{{ date | date:'dd / MM / yyyy' }}</ion-title>
     <ion-img src="../../../assets/icon/logo.png"></ion-img>
   </ion-card>
 
   <ion-card class="content">
-    <ion-card class="divider"><ion-card></ion-card></ion-card>
-    <ion-card class="partiesContent">
       <ion-card class="parties">
         <ion-list lines="none">
-          <ion-list-header>
-            <ion-title>Available Games</ion-title>
-          </ion-list-header>
-          <ion-item *ngFor="let room of rooms">
-            <div class="gameStatus">
-              <ion-text>Game: {{room.name}}</ion-text>
+          <ion-item *ngFor="let room of createdRooms">
+            <div id="created" class="gameItem" (click)="toRoom(room.id)">
+              <div class="gameInfo">
+                <ion-text>{{room.name}}</ion-text>
+                <ion-text id="createdStatus">CREATED</ion-text>
+              </div>
+              <ion-icon id="icon" name="arrow-forward"></ion-icon>
             </div>
-            <div class="verticalLine"></div>
-            <div class="rank">
-              <ion-text>From {{ room.dateFrom | date:'mediumDate' }}</ion-text>
-              <ion-text>To {{ room.dateTo | date:'medium' }}</ion-text>
+          </ion-item>
+          <br />
+        </ion-list>
+      </ion-card>
+      <ion-card class="parties">
+        <ion-list lines="none">
+          <ion-item *ngFor="let room of playingRooms">
+            <div id="playing" class="gameItem" (click)="toRoom(room.id)">
+              <div class="gameInfo">
+                <ion-text>{{room.name}}</ion-text>
+                <ion-text id="playingStatus">PLAYING</ion-text>
+              </div>
+              <ion-icon id="icon" name="arrow-forward"></ion-icon>
             </div>
-            <ion-icon class="icon" name="arrow-forward" (click)="toRoom(room.id)" ></ion-icon>
+          </ion-item>
+          <br />
+        </ion-list>
+      </ion-card>
+      <ion-card class="parties">
+        <ion-list lines="none">
+          <ion-item *ngFor="let room of finishedRooms">
+            <div id="finished" class="gameItem" (click)="toRoom(room.id)">
+              <div class="gameInfo">
+                <ion-text>{{room.name}}</ion-text>
+                <ion-text id="finishedStatus">FINISHED</ion-text>
+              </div>
+              <ion-icon id="icon" name="arrow-forward"></ion-icon>
+            </div>
           </ion-item>
           <br />
         </ion-list>
       </ion-card>
     </ion-card>
-  </ion-card>
 </ion-content>
-
-<ion-toolbar>
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tabindex="account">
-        <ion-icon name="person"></ion-icon>
-        <ion-label>Account</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tabindex="games">
-        <ion-icon name="game-controller"></ion-icon>
-        <ion-label>Games</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-</ion-toolbar>
