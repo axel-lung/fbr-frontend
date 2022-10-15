@@ -1,0 +1,40 @@
+{
+  "login": {
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "passwordRequired": "Ce champ est obligatoire",
+    "passwordLength": "Le mot de passe doit faire 8 caractères min.",
+    "login": "Se connecter",
+    "notYetAMember": "Pas encore membre ? S'inscrire !"
+  },
+  "signup": {
+    "email": "Adresse mail",
+    "username": "Nom d'utilisateur",
+    "birthday": "Date de naissance",
+    "password": "Mot de passe",
+    "terms": "J'accepte les termes et conditions liés à cette application.",
+    "cgv": "Voir plus",
+    "signup": "S'inscrire",
+    "alreadyAMember": "Déjà membre ? Se connecter !"
+  },
+  "home": {
+    "created": "CRÉÉE",
+    "playing": "EN COURS",
+    "finished": "TERMINÉE"
+  },
+  "room":{
+    "game": "Partie",
+    "created": "CRÉÉE",
+    "playing": "EN COURS",
+    "finished": "TERMINÉE",
+    "ingame": "Tu joues à cette partie",
+    "jointhegame": "REJOINDRE LA PARTIE",
+    "beton": "PARIER SUR",
+    "betdraw": "PARIER NUL",
+    "betonInformation": "Vous pariez sur",
+    "betdrawInformation": "Vous pariez nul",
+    "betWon": "Vous avez gagné votre pari",
+    "betLose": "Vous avez perdu votre pari"
+  }
+
+}
