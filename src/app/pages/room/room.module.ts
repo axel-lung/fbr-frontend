@@ -8,6 +8,7 @@ import { RoomPageRoutingModule } from './room-routing.module';
 
 import { RoomPage } from './room.page';
 import { SwiperModule } from 'swiper/angular';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SwiperModule } from 'swiper/angular';
     FormsModule,
     IonicModule,
     RoomPageRoutingModule,
-    SwiperModule
+    SwiperModule,
+    TranslateModule
   ],
   declarations: [RoomPage]
 })

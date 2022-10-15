@@ -1,5 +1,3 @@
-
-
 <ion-content>
   <div class="content">
     <div class="title">
@@ -9,18 +7,18 @@
     <br><br><br><br><br>
     <form (ngSubmit)="login()" [formGroup]="credentials">
 
-        <ion-text>Username</ion-text>
+        <ion-text>{{'login.username' | translate }}</ion-text>
         <input formControlName="username">
         <br>
-        <ion-text>Password</ion-text>
+        <ion-text>{{ 'login.password' | translate }}</ion-text>
         <input type="password" formControlName="password">
         <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
-          <span *ngIf="password.errors?.required">Password is required</span>
-          <span *ngIf="password.errors?.minlength">Password needs to be 6 characters</span>
+          <span *ngIf="password.errors?.required">{{ 'login.passwordRequired' | translate }}</span>
+          <span *ngIf="password.errors?.minlength">{{ 'login.passwordLength' | translate }}</span>
         </div>
         <br><br>
-        <button type="submit" [disabled]="!credentials.valid">Log in</button>
-        <ion-button (click)="signup()" type="button" expand="block" color="light" fill="clear">Not yet a member? Sign up!</ion-button>
+        <button type="submit" [disabled]="!credentials.valid">{{ 'login.login' | translate }}</button>
+        <ion-button (click)="signup()" type="button" expand="block" color="light" fill="clear">{{ 'login.notYetAMember' | translate }}</ion-button>
     </form>
   </div>
 </ion-content>
