@@ -1,7 +1,9 @@
 ion-content {
   --padding-start: 10%;
   --padding-end: 10%;
-  --background: var(--first-color);
+  --background: none;
+  background: url("../../../assets/background.jpg") no-repeat fixed center;
+  background-size: cover;
   div.content{
     display: flex;
     justify-content: center;

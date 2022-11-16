@@ -107,7 +107,8 @@ export class RoomPage implements OnInit {
       )
       .subscribe(
         async (data) => {
-          this.router.navigateByUrl('/home', { replaceUrl: true });
+          //this.router.navigateByUrl('/home', { replaceUrl: true });
+
         }
       );
   }

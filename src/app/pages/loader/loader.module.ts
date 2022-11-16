@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { LoaderPageRoutingModule } from './loader-routing.module';
 
 import { LoaderPage } from './loader.page';
+import { MenuComponent } from 'src/app/components/menu/menu.component';
 
 @NgModule({
   imports: [

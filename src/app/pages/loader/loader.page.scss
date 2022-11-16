@@ -1,6 +1,25 @@
-.flex-center{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+ion-content{
+  --background: none;
+  background: url("../../../assets/background.jpg") no-repeat fixed center;
+  background-size: cover;
+  .flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    img{
+      width: 33%;
+    }
+    h1{
+      z-index: 1;
+      margin: 0;
+      color: white;
+    }
+    ion-progress-bar{
+      height: 5%;
+      width: 80%;
+      border-radius: 20px;
+    }
+  }
 }

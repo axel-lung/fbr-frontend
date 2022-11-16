@@ -6,8 +6,8 @@ android {
         applicationId "fr.alng.fbr"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion 32
-        versionCode 3
-        versionName "1.2"
+        versionCode 6
+        versionName "1.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.

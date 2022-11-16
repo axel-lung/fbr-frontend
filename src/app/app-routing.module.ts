@@ -6,7 +6,8 @@ import { IntroGuard } from './guards/intro.guard';
 const routes: Routes = [
   {
     path: 'loader',
-    loadChildren: () => import('./pages/loader/loader.module').then( m => m.LoaderPageModule)
+    loadChildren: () => import('./pages/loader/loader.module').then( m => m.LoaderPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'login',
@@ -19,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/loader',
     pathMatch: 'full'
   },
   {
