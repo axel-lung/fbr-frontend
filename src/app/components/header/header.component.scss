@@ -1,0 +1,37 @@
+#header {
+  flex-grow: 1;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  div {
+    display: flex;
+    align-items: center;
+  }
+  div#trophees {
+    width: 30%;
+    justify-content: space-between;
+    div {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid #000000;
+      width: 90%;
+      justify-content: end;
+      padding-right: 2%;
+      align-items: center;
+    }
+    #trophee {
+      height: 35px;
+      position: absolute;
+    }
+  }
+  div#date {
+    width: 60%;
+    justify-content: center;
+    p {
+      font-family: "Grandstander";
+      font-size: 36px;
+      margin: 0;
+      text-shadow: 0px 4px 4px rgba(217, 217, 217, 0.25);
+    }
+  }
+}

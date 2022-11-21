@@ -14,19 +14,24 @@ export class LoaderPage implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
+
     setTimeout(() => {
-      console.log('test');
-    }, 5000);
+      setTimeout(() => {
+        this.router.navigateByUrl('/home', { replaceUrl: true });
+      }, 5000);
 
-    setInterval(() => {
-      this.progress += 0.01;
-      if(this.loadingCount < 100) {
-        this.loadingCount += 1;
-      }
+      setInterval(() => {
+        this.progress += 0.01;
+        if(this.loadingCount < 100) {
+          this.loadingCount += 1;
+        }
 
-    }, 50);
-    ;
-    //this.router.navigateByUrl('/tab1', { replaceUrl: true });
+      }, 50);
+    }, 1500);
+
+
+
+
   }
 
 }

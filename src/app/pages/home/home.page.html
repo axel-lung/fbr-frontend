@@ -1,6 +1,19 @@
 <ion-content>
-  <ion-card>
-    <ion-title>{{ date | date:'dd / MM / yyyy' }}</ion-title>
+  <div id="content">
+    <app-header></app-header>
+    <br />
+    <div id="profile">
+      <img src="../../../assets/icon/man_player.png" alt="man_player" />
+      <p>Axel</p>
+    </div>
+    <div id="main">
+      <img src="../../../assets/icon/stadium.png" alt="stadium">
+      <p>Stade 1</p>
+      <button>Trouver une partie</button>
+    </div>
+  </div>
+  <!-- <ion-card>
+    <ion-title>{{ new Date(); | date:'dd / MM / yyyy' }}</ion-title>
     <ion-img src="../../../assets/icon/logo.png"></ion-img>
   </ion-card>
 
@@ -47,5 +60,6 @@
           <br />
         </ion-list>
       </ion-card>
-    </ion-card>
+    </ion-card> -->
 </ion-content>
+<app-menu></app-menu>

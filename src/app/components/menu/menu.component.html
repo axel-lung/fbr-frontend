@@ -2,14 +2,27 @@
   <ul>
     <li>
       <img
-        [style.transform]='profileSize'
+        [routerLink]="['/home/profile']"
+        [style.transform]="profileSize"
         src="../../../assets/icon/man_player.png"
         alt="profile"
       />
     </li>
     <li id="center">
-      <img src="../../../assets/icon/world_cup.png" alt="main" />
+      <img
+        [routerLink]="['/home']"
+        [style.transform]="homeSize"
+        src="../../../assets/icon/world_cup.png"
+        alt="main"
+      />
     </li>
-    <li><img src="../../../assets/icon/flag.png" alt="other" /></li>
+    <li>
+      <img
+        [routerLink]="['/home/game']"
+        [style.transform]="gameSize"
+        src="../../../assets/icon/flag.png"
+        alt="game"
+      />
+    </li>
   </ul>
 </div>

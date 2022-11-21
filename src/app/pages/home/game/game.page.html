@@ -1,0 +1,44 @@
+<ion-content>
+  <div id="content">
+    <app-header></app-header>
+    <div id="match">
+      <p>Match du jour</p>
+      <div id="matchInfo">
+        <div>
+          <img src="../../../../assets/icon/man_player.png" alt="homeTeamImg" />
+          <p>Sochaux</p>
+        </div>
+        <div>
+          <p>22/11</p>
+          <p>11:20</p>
+        </div>
+        <div>
+          <img src="../../../../assets/icon/man_player.png" alt="awayTeamImg" />
+          <p>Sochaux</p>
+        </div>
+      </div>
+      <div id="bet">
+        <button>PARIER</button>
+      </div>
+    </div>
+    <div id="gameList">
+      <cdk-virtual-scroll-viewport itemSize="1">
+        <ion-list lines="none">
+          <ion-item *cdkVirtualFor="let item of items">
+            <div id="created" class="gameItem" (click)="toRoom(room.id)">
+              <div class="gameInfo">
+                <ion-text>{{item}}</ion-text>
+                <ion-text id="createdStatus">test</ion-text>
+              </div>
+              <ion-icon id="icon" name="arrow-forward"></ion-icon>
+            </div>
+          </ion-item>
+          <br />
+        </ion-list>
+      </cdk-virtual-scroll-viewport>
+    </div>
+
+  </div>
+  <!-- <cdk-virtual-scroll-viewport></cdk-virtual-scroll-viewport> -->
+</ion-content>
+<app-menu></app-menu>

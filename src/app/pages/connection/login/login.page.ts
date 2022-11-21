@@ -1,4 +1,4 @@
-import { AuthenticationService } from './../../services/authentication.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController, LoadingController } from '@ionic/angular';
@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
         await loading.dismiss();
         const alert = await this.alertController.create({
           header: 'Login failed',
-          message: "Wrong username or password!",
+          message: 'Wrong username or password!',
           buttons: ['OK'],
         });
 
@@ -50,10 +50,12 @@ export class LoginPage implements OnInit {
 
 
   // Easy access for form fields
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   get username() {
     return this.credentials.get('username');
   }
 
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   get password() {
     return this.credentials.get('password');
   }

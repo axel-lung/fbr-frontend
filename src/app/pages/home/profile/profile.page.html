@@ -1,0 +1,53 @@
+<ion-content>
+  <div id="content">
+    <app-header></app-header>
+    <div id="main">
+      <img src="../../../assets/icon/man_player.png" alt="avatar" />
+      <button id="open-modal" expand="block">Changer l'avatar</button>
+    </div>
+    <div id="stats">
+      <div>
+        <img src="../../../../assets/icon/win.png" alt="win" />
+        <p>victoires</p>
+        <p>0</p>
+      </div>
+      <div>
+        <img src="../../../../assets/icon/lose.png" alt="lose" />
+        <p>défaites</p>
+        <p>0</p>
+      </div>
+    </div>
+    <div id="settings">
+      <button>Changer de mot de passe</button>
+      <img
+        (click)="logout()"
+        src="../../../../assets/icon/logout.png"
+        alt="disconnection"
+      />
+    </div>
+  </div>
+
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <ion-content>
+        <ion-toolbar>
+          <ion-title>Choisir l'avatar</ion-title>
+          <ion-buttons slot="end">
+            <ion-button color="light" (click)="modal.dismiss()"
+              >Close</ion-button
+            >
+          </ion-buttons>
+        </ion-toolbar>
+        <ion-list>
+          <ion-item>
+            <ion-img src="../../../../assets/icon/man_player.png"></ion-img>
+          </ion-item>
+          <ion-item>
+            <ion-img src="../../../../assets/icon/woman_player.png"></ion-img>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
+<app-menu></app-menu>

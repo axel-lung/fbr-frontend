@@ -6,12 +6,12 @@ import { IntroGuard } from './guards/intro.guard';
 const routes: Routes = [
   {
     path: 'loader',
-    loadChildren: () => import('./pages/loader/loader.module').then( m => m.LoaderPageModule),
+    loadChildren: () => import('./pages/connection/loader/loader.module').then( m => m.LoaderPageModule),
     canLoad: [AuthGuard]
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
+    loadChildren: () => import('./pages/connection/login/login.module').then( m => m.LoginPageModule),
     canLoad: [IntroGuard]
   },
   {
@@ -24,18 +24,13 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'tab1',
-    loadChildren: () => import('./pages/tab1/tab1.module').then( m => m.Tab1PageModule),
-    canLoad: [AuthGuard]
-  },
-  {
     path: 'signup',
-    loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
+    loadChildren: () => import('./pages/connection/signup/signup.module').then( m => m.SignupPageModule)
   },
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
-    canLoad: [AuthGuard]
+    canLoad: []
   },
   {
     path: 'room',

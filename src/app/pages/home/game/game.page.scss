@@ -1,0 +1,139 @@
+ion-content {
+  --background: none;
+  background-image: url("../../../../assets/abstract-gradient-neon-lights.jpg");
+  background-size: cover;
+
+  #content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    color: white;
+    app-header {
+      width: 100%;
+    }
+
+    #match {
+      padding: 2%;
+      width: 90%;
+      background: rgba(217, 217, 217, 0.1);
+      border: 1px solid #000000;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      p {
+        margin: 5%;
+        font-family: "Grandstander";
+        font-size: 28px;
+      }
+      #matchInfo {
+        display: flex;
+        p {
+          font-size: 16px;
+        }
+        div {
+          justify-content: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+      img {
+        width: 25%;
+      }
+      #bet {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 5%;
+        button {
+          background: #03a800;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.33);
+          border-radius: 15px;
+          padding: 2% 5%;
+          color: white;
+          font-size: 16px;
+          font-family: "Rubik";
+        }
+      }
+    }
+    #gameList {
+      width: 100%;
+      height: 100%;
+
+      cdk-virtual-scroll-viewport {
+        width: 100%;
+        height: 100%;
+        ion-list {
+
+          padding-top: 20px;
+          width: 100%;
+          padding: 0px 15px;
+          background: none;
+          ion-item{
+            --background: none;
+          }
+          .gameItem {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 15px;
+            color: white;
+            border-radius: 5px;
+            margin-top: 5px;
+          }
+          #created {
+            background: rgba(217, 217, 217, 0.3);
+            border-left: blue solid 5px;
+          }
+          #playing {
+            background: white;
+            border-left: orange solid 5px;
+          }
+          #finished {
+            background: white;
+            border-left: darkmagenta solid 5px;
+          }
+          .gameInfo {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            font-family: "ABeeZee", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 14px;
+            #createdStatus {
+              background-color: blue;
+              padding: 3px;
+              border-radius: 5px;
+              font-size: 12px;
+              color: white;
+            }
+            #playingStatus {
+              background-color: orange;
+              padding: 3px;
+              border-radius: 5px;
+              font-size: 12px;
+              color: white;
+            }
+            #finishedStatus {
+              background-color: darkmagenta;
+              padding: 3px;
+              border-radius: 5px;
+              font-size: 12px;
+              color: white;
+            }
+          }
+          #icon {
+            font-size: 40px;
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}

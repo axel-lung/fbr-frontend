@@ -54,7 +54,7 @@ export class AuthenticationService {
           ).finally(
             () => {
               this.getRefreshToken(this.refreshToken.getValue()).subscribe();
-              this.router.navigateByUrl('/home');
+              this.router.navigateByUrl('/loader');
             }
           );
       })
@@ -62,7 +62,8 @@ export class AuthenticationService {
   }
 
   logout(): Promise<void> {
-    return Storage.remove({ key: TOKEN_KEY });
+    this.router.navigateByUrl('/login');
+    return this.storage.clear();
   }
 
   getRefreshToken(token: string): Observable<any>{

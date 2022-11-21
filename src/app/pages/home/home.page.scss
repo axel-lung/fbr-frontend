@@ -1,100 +1,163 @@
 ion-content {
-  --background: var(--first-color);
-  ion-card {
-    --background: none;
-    box-shadow: none;
-    display: flex;
-    justify-content: space-around;
-    ion-title {
-      font-family: "Itim", sans-serif;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 32px;
-      --color: white;
-    }
-    ion-img {
-      width: 42px;
-    }
-  }
+  --background: none;
+  background-image: url("../../../assets/abstract-gradient-neon-lights.jpg");
+  background-size: cover;
 
-  ion-card.content {
-    ion-item{
-      --background: none;
-    }
-    --background: none;
-    margin: 0;
+  #content {
     display: flex;
     flex-direction: column;
-    ion-card.parties {
-      --background: none;
-      width: 100%;
-      margin: 0;
-      ion-title{
-        color: black;
-      }
-      ion-list {
-        width: 100%;
-        padding: 0px 15px;
-        background: none;
-          .gameItem{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 5px 15px;
-            color: black;
-            border-radius: 5px;
-            margin-bottom: 5px;
-          }
-          #created{
-            background: white;
-            border-left: blue solid 5px;
-          }
-          #playing{
-            background: white;
-            border-left: orange solid 5px;
-          }
-          #finished{
-            background: white;
-            border-left: darkmagenta solid 5px;
-          }
-          .gameInfo {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
-            font-family: "ABeeZee", sans-serif;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 15px;
-            line-height: 14px;
-            #createdStatus{
-              background-color: blue;
-              padding: 3px;
-              border-radius: 5px;
-              font-size: 12px;
-              color: white;
-            }
-            #playingStatus{
-              background-color: orange;
-              padding: 3px;
-              border-radius: 5px;
-              font-size: 12px;
-              color: white;
-            }
-            #finishedStatus{
-              background-color: darkmagenta;
-              padding: 3px;
-              border-radius: 5px;
-              font-size: 12px;
-              color: white;
-            }
-          }
-          #icon {
-            font-size: 40px;
-            color: black;
-          }
+    align-items: center;
+    height: 100%;
+    color: white;
 
+    app-header{
+      width: 100%;
+    }
+
+    #profile {
+      padding: 2%;
+      width: 90%;
+      background: rgba(217, 217, 217, 0.1);
+      border: 1px solid #000000;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      img {
+        height: 45px;
+      }
+      p {
+        font-family: "Grandstander";
+        font-size: 36px;
+        margin: 4px;
+      }
+    }
+
+    #main {
+      flex-grow: 3;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      img {
+        width: 40%;
+      }
+      p{
+        font-family: 'Grandstander';
+        font-size: 24px;
+        font-weight: bold;
+      }
+      button {
+        padding: 12px 19px;
+        background: #f5c84c;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 4px 4px #6a6c00;
+        border-radius: 15px;
+        font-family: "Grandstander";
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-size: 24px;
+        color: white;
       }
     }
   }
+
+  // ion-card {
+  //   --background: none;
+  //   box-shadow: none;
+  //   display: flex;
+  //   justify-content: space-around;
+  //   ion-title {
+  //     font-family: "Itim", sans-serif;
+  //     font-style: normal;
+  //     font-weight: 400;
+  //     font-size: 32px;
+  //     --color: white;
+  //   }
+  //   ion-img {
+  //     width: 42px;
+  //   }
+  // }
+
+  // ion-card.content {
+  //   ion-item{
+  //     --background: none;
+  //   }
+  //   --background: none;
+  //   margin: 0;
+  //   display: flex;
+  //   flex-direction: column;
+  //   ion-card.parties {
+  //     --background: none;
+  //     width: 100%;
+  //     margin: 0;
+  //     ion-title{
+  //       color: black;
+  //     }
+  //     ion-list {
+  //       width: 100%;
+  //       padding: 0px 15px;
+  //       background: none;
+  //         .gameItem{
+  //           width: 100%;
+  //           display: flex;
+  //           justify-content: space-between;
+  //           padding: 5px 15px;
+  //           color: black;
+  //           border-radius: 5px;
+  //           margin-bottom: 5px;
+  //         }
+  //         #created{
+  //           background: white;
+  //           border-left: blue solid 5px;
+  //         }
+  //         #playing{
+  //           background: white;
+  //           border-left: orange solid 5px;
+  //         }
+  //         #finished{
+  //           background: white;
+  //           border-left: darkmagenta solid 5px;
+  //         }
+  //         .gameInfo {
+  //           display: flex;
+  //           flex-direction: column;
+  //           justify-content: space-evenly;
+  //           align-items: center;
+  //           font-family: "ABeeZee", sans-serif;
+  //           font-style: normal;
+  //           font-weight: 400;
+  //           font-size: 15px;
+  //           line-height: 14px;
+  //           #createdStatus{
+  //             background-color: blue;
+  //             padding: 3px;
+  //             border-radius: 5px;
+  //             font-size: 12px;
+  //             color: white;
+  //           }
+  //           #playingStatus{
+  //             background-color: orange;
+  //             padding: 3px;
+  //             border-radius: 5px;
+  //             font-size: 12px;
+  //             color: white;
+  //           }
+  //           #finishedStatus{
+  //             background-color: darkmagenta;
+  //             padding: 3px;
+  //             border-radius: 5px;
+  //             font-size: 12px;
+  //             color: white;
+  //           }
+  //         }
+  //         #icon {
+  //           font-size: 40px;
+  //           color: black;
+  //         }
+
+  //     }
+  //   }
+  // }
 }

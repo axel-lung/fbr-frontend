@@ -4,17 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { Tab1PageRoutingModule } from './tab1-routing.module';
+import { GamePageRoutingModule } from './game-routing.module';
 
-import { Tab1Page } from './tab1.page';
+import { GamePage } from './game.page';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    Tab1PageRoutingModule
+    GamePageRoutingModule,
+    SharedModule
   ],
-  declarations: [Tab1Page]
+  declarations: [GamePage]
 })
-export class Tab1PageModule {}
+export class GamePageModule {}
