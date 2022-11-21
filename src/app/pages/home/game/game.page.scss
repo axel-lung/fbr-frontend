@@ -25,7 +25,7 @@ ion-content {
       justify-content: center;
       p {
         margin: 5%;
-        font-family: "Grandstander";
+        font-family: "Grandstander", sans-serif;
         font-size: 28px;
       }
       #matchInfo {
@@ -67,8 +67,6 @@ ion-content {
         width: 100%;
         height: 100%;
         ion-list {
-
-          padding-top: 20px;
           width: 100%;
           padding: 0px 15px;
           background: none;
