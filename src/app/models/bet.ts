@@ -1,7 +1,7 @@
 import { Match } from "./match";
-import { Room } from "./room";
+import { Room } from "../shared/rooms/models/room";
 import { Team } from "./team";
-import { User } from "./user";
+import { User } from "../shared/users/models/user";
 
 export class Bet {
   id: number | null;

@@ -1,65 +1,64 @@
-ion-header{
-  // background-color: var(--first-color-light);
-  z-index: 0;
-  padding: 10px;
-  #zizou{
-    float: right;
-    position: relative;
-    z-index: 1;
-    width: 40%;
-  }
-  ion-card-header{
-    font-family: "Itim", sans-serif;
-    font-style: normal;
-    background: white;
-    border-radius: 15px;
-    #created{
+ion-content {
+  --background: none;
+  background-image: url("../../../assets/abstract-gradient-neon-lights.jpg");
+  background-size: cover;
+  display: flex;
+  #header {
+    flex-grow: 1;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+    #roomInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    ion-text {
+      font-family: "Itim", sans-serif;
+      font-style: normal;
+      background: white;
+      border-radius: 15px;
+    }
+    #created {
       color: blue;
     }
-    #playing{
+    #playing {
       color: orange;
     }
-    #finished{
+    #finished {
       color: green;
     }
   }
-  div{
-    margin: 2px;
-    width: 60%;
-    color: white;
-    padding: 5px;
-    text-align: center;
-    align-items: center;
-  }
-}
 
-ion-content {
-  --background: var(--first-color-light);
-  display: flex;
-  ion-slides{
-    height: 100%;
-    ion-slide{
+  ion-slides {
+    flex-grow: 3;
+    height: 80%;
+    ion-slide {
       width: 100%;
-      ion-card{
+      ion-card {
         font-family: "Itim", sans-serif;
         font-style: normal;
         padding: 15px 5px;
         border-radius: 15px;
-        #matchOverview{
+        #matchOverview {
           display: flex;
           justify-content: space-between;
-          div{
+          div {
             display: flex;
             flex-direction: column;
             align-items: center;
             flex: 1 1 0px;
-            ion-img{
+            ion-img {
               padding: 0.5em;
             }
-            ion-text{
+            ion-text {
               font-size: 14px;
             }
-            #hour{
+            #hour {
               font-size: large;
             }
           }
@@ -67,27 +66,26 @@ ion-content {
       }
     }
 
-
-    ion-img{
+    ion-img {
       width: 65px;
     }
   }
 }
 
-ion-toolbar{
-  --background: #D9D9D9;
+ion-toolbar {
+  --background: #d9d9d9;
   --min-height: 0px;
   display: flex;
   flex-direction: column;
   margin: 0;
   padding: 0;
   height: 50px;
-  ion-back-button{
+  ion-back-button {
     float: left;
     height: 50px;
     width: 50px;
   }
-  div{
+  div {
     height: 50px;
     display: flex;
     align-items: center;

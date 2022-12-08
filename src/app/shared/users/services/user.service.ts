@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { RestService } from 'src/app/shared/rest.service';
 import { User } from '../models/user';
-import { RestService } from './rest.service';
 
 @Injectable({
   providedIn: 'root'

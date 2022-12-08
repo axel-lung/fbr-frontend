@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Area } from '../models/area';
-import { RestService } from './rest.service';
+import { RestService } from '../shared/rest.service';
 
 @Injectable({
   providedIn: 'root'

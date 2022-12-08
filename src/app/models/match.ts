@@ -1,12 +1,12 @@
-import { Area } from "./area";
-import { Competition } from "./competition";
-import { Team } from "./team";
+import { Area } from './area';
+import { Competition } from './competition';
+import { Team } from './team';
 
 export class Match {
   id: number | null;
   utcDate: Date;
-  status:string;
-  matchday : number;
+  status: string;
+  matchday: number;
   stage: string;
   duration: string;
   homeScore: number;
@@ -21,8 +21,8 @@ export class Match {
   constructor(
     id: number | null,
     utcDate: Date,
-    status:string,
-    matchday : number,
+    status: string,
+    matchday: number,
     stage: string,
     duration: string,
     homeScore: number,

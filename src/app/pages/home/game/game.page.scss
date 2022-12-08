@@ -55,7 +55,7 @@ ion-content {
           padding: 2% 5%;
           color: white;
           font-size: 16px;
-          font-family: "Rubik";
+          font-family: "Rubik", sans-serif;
         }
       }
     }
@@ -82,16 +82,16 @@ ion-content {
             border-radius: 5px;
             margin-top: 5px;
           }
-          #created {
+          #CREATED {
             background: rgba(217, 217, 217, 0.3);
             border-left: blue solid 5px;
           }
-          #playing {
-            background: white;
+          #PLAYING {
+            background: rgba(217, 217, 217, 0.3);
             border-left: orange solid 5px;
           }
-          #finished {
-            background: white;
+          #FINISHED {
+            background: rgba(217, 217, 217, 0.3);
             border-left: darkmagenta solid 5px;
           }
           .gameInfo {
@@ -104,21 +104,21 @@ ion-content {
             font-weight: 400;
             font-size: 15px;
             line-height: 14px;
-            #createdStatus {
+            #CREATEDStatus {
               background-color: blue;
               padding: 3px;
               border-radius: 5px;
               font-size: 12px;
               color: white;
             }
-            #playingStatus {
+            #PLAYINGStatus {
               background-color: orange;
               padding: 3px;
               border-radius: 5px;
               font-size: 12px;
               color: white;
             }
-            #finishedStatus {
+            #FINISHEDStatus {
               background-color: darkmagenta;
               padding: 3px;
               border-radius: 5px;

@@ -13,6 +13,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 import {InputTextModule} from 'primeng/inputtext';
+import { UserState } from './shared/users/state/user.state';
+import { RoomState } from './shared/rooms/state/room.state';
+import { NgxsModule } from '@ngxs/store';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -26,6 +29,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     HttpClientModule,
     InputTextModule,
+    NgxsModule.forRoot([
+      //UserState
+    ]),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

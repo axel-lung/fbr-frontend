@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { environment } from 'src/environments/environment';
 
-import { Storage } from '@capacitor/storage';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';

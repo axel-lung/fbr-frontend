@@ -1,5 +1,5 @@
 import { Role } from "./role";
-import { Room } from "./room";
+import { Room } from "../../rooms/models/room";
 
 export class User {
   id: number | null;

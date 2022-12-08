@@ -1,52 +1,114 @@
-<ion-header>
-  <ion-img id="zizou" src="../../../assets/football-player.png"></ion-img>
-  <ion-card-header>
-    <ion-card-title>{{ 'room.game' | translate }} {{ room?.name }}</ion-card-title>
-    <ion-text id="created" *ngIf="room?.status == 'CREATED'">{{ 'room.created' | translate }}</ion-text>
-    <ion-text id="playing" *ngIf="room?.status == 'PLAYING'">{{ 'room.playing' | translate }}</ion-text>
-    <ion-text id="finished" *ngIf="room?.status == 'FINISHED'">{{ 'room.finished' | translate }}</ion-text>
-  </ion-card-header>
-  <div>
-    <ion-button *ngIf="!isUserInRoom" (click)="addUserInRoom()">{{ 'room.jointhegame' | translate }}</ion-button>
-    <ion-text id="gameInfo" *ngIf="isUserInRoom">{{ 'room.ingame' | translate }}</ion-text>
-  </div>
-</ion-header>
 <ion-content>
+  <div id="header">
+    <div id="roomInfo">
+      <ion-card-title
+        >{{ 'room.game' | translate }} {{ room?.name }}</ion-card-title
+      >
+      <ion-text id="created" *ngIf="room?.status === 'CREATED'"
+        >{{ 'room.created' | translate }}</ion-text
+      >
+      <ion-text id="playing" *ngIf="room?.status === 'PLAYING'"
+        >{{ 'room.playing' | translate }}</ion-text
+      >
+      <ion-text id="finished" *ngIf="room?.status === 'FINISHED'"
+        >{{ 'room.finished' | translate }}</ion-text
+      >
+    </div>
+    <div>
+      <ion-button *ngIf="!isUserInRoom" (click)="addUserInRoom()"
+        >{{ 'room.jointhegame' | translate }}</ion-button
+      >
+      <ion-text id="gameInfo" *ngIf="isUserInRoom"
+        >{{ 'room.ingame' | translate }}</ion-text
+      >
+    </div>
+  </div>
   <ion-slides pager="true" [options]="slideOpts">
     <ion-slide *ngFor="let match of matches;let indexOfelement=index">
       <ion-card>
         <ion-card-title>{{ match.competition.name }}</ion-card-title>
-        <br>
+        <br />
         <ion-card-content id="matchOverview">
           <div>
             <ion-img src="{{ match.homeTeam.crest }}"></ion-img>
             <ion-text>{{ match.homeTeam.name }}</ion-text>
           </div>
           <div>
-            <ion-text *ngIf="match.status == 'TIMED'">{{ match.utcDate | date:'dd/MM/yyyy'}}</ion-text>
-            <ion-text id="hour" *ngIf="match.status == 'TIMED'">{{ match.utcDate | date:'HH:mm'}}</ion-text>
-            <ion-text *ngIf="match.status == 'IN_PLAY'">{{ match.utcDate | date:'dd/MM/yyyy'}}</ion-text>
-            <ion-text id="hour" *ngIf="match.status == 'IN_PLAY'">{{ match.utcDate | date:'HH:mm'}}</ion-text>
-            <ion-text id="hour" *ngIf="match.status == 'IN_PLAY'">{{match.homeScore}} - {{match.awayScore}}</ion-text>
-            <ion-text id="hour" *ngIf="match.status == 'IN_PLAY'">{{ 'room.playing' | translate }}</ion-text>
-            <ion-text *ngIf="match.status == 'FINISHED'">{{ match.utcDate | date:'dd/MM/yyyy'}}</ion-text>
-            <ion-text id="hour" *ngIf="match.status == 'FINISHED'">{{ match.utcDate | date:'HH:mm'}}</ion-text>
-            <ion-text id="hour" *ngIf="match.status == 'FINISHED'">{{match.homeScore}} - {{match.awayScore}}</ion-text>
-            <ion-text *ngIf="match.status == 'FINISHED'">{{ 'room.finished' | translate }}</ion-text>
+            <ion-text *ngIf="match.status === 'TIMED'"
+              >{{ match.utcDate | date:'dd/MM/yyyy'}}</ion-text
+            >
+            <ion-text id="hour" *ngIf="match.status === 'TIMED'"
+              >{{ match.utcDate | date:'HH:mm'}}</ion-text
+            >
+            <ion-text *ngIf="match.status === 'IN_PLAY'"
+              >{{ match.utcDate | date:'dd/MM/yyyy'}}</ion-text
+            >
+            <ion-text id="hour" *ngIf="match.status === 'IN_PLAY'"
+              >{{ match.utcDate | date:'HH:mm'}}</ion-text
+            >
+            <ion-text id="hour" *ngIf="match.status === 'IN_PLAY'"
+              >{{match.homeScore}} - {{match.awayScore}}</ion-text
+            >
+            <ion-text id="hour" *ngIf="match.status === 'IN_PLAY'"
+              >{{ 'room.playing' | translate }}</ion-text
+            >
+            <ion-text *ngIf="match.status === 'FINISHED'"
+              >{{ match.utcDate | date:'dd/MM/yyyy'}}</ion-text
+            >
+            <ion-text id="hour" *ngIf="match.status === 'FINISHED'"
+              >{{ match.utcDate | date:'HH:mm'}}</ion-text
+            >
+            <ion-text id="hour" *ngIf="match.status === 'FINISHED'"
+              >{{match.homeScore}} - {{match.awayScore}}</ion-text
+            >
+            <ion-text *ngIf="match.status === 'FINISHED'"
+              >{{ 'room.finished' | translate }}</ion-text
+            >
           </div>
           <div>
             <ion-img src="{{ match.awayTeam.crest }}"></ion-img>
             <ion-text>{{ match.awayTeam.name }}</ion-text>
           </div>
         </ion-card-content>
-        <br>
-          <ion-button *ngIf="isUserInRoom && !isBetOnMatch.get(match.id) && match.status == 'TIMED'" (click)="addBet(match.homeTeam.id, match.id)">{{ 'room.beton' | translate }} {{match.homeTeam.shortName}}</ion-button>
-          <ion-button *ngIf="isUserInRoom && !isBetOnMatch.get(match.id) && match.status == 'TIMED'" (click)="addBet(match.awayTeam.id, match.id)">{{ 'room.beton' | translate }} {{match.awayTeam.shortName}}</ion-button>
-          <ion-button *ngIf="isUserInRoom && !isBetOnMatch.get(match.id) && match.status == 'TIMED'" (click)="addBet(2, match.id)">{{ 'room.betdraw' | translate }}</ion-button>
-          <ion-text id="betInfo" *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && bets.get(match.id).team.id != 2">{{ 'room.betonInformation' | translate }} {{ bets.get(match.id).team.name }}</ion-text>
-          <ion-text id="betInfo" *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && bets.get(match.id).team.id == 2">{{ 'room.betdrawInformation' | translate }}</ion-text>
-          <ion-text id="betInfo" *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && bets.get(match.id).hasWin">{{ 'room.betWon' | translate }}</ion-text>
-          <ion-text id="betInfo" *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && !bets.get(match.id).hasWin && match.status === 'FINISHED'">{{ 'room.betLose' | translate }}</ion-text>
+        <br />
+        <ion-button
+          *ngIf="isUserInRoom && !isBetOnMatch.get(match.id) && match.status === 'TIMED'"
+          (click)="addBet(match.homeTeam.id, match.id)"
+          >{{ 'room.beton' | translate }}
+          {{match.homeTeam.shortName}}</ion-button
+        >
+        <ion-button
+          *ngIf="isUserInRoom && !isBetOnMatch.get(match.id) && match.status === 'TIMED'"
+          (click)="addBet(match.awayTeam.id, match.id)"
+          >{{ 'room.beton' | translate }}
+          {{match.awayTeam.shortName}}</ion-button
+        >
+        <ion-button
+          *ngIf="isUserInRoom && !isBetOnMatch.get(match.id) && match.status === 'TIMED'"
+          (click)="addBet(2, match.id)"
+          >{{ 'room.betdraw' | translate }}</ion-button
+        >
+        <ion-text
+          id="betInfo"
+          *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && bets.get(match.id).team.id !== 2"
+          >{{ 'room.betonInformation' | translate }} {{
+          bets.get(match.id).team.name }}</ion-text
+        >
+        <ion-text
+          id="betInfo"
+          *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && bets.get(match.id).team.id === 2"
+          >{{ 'room.betdrawInformation' | translate }}</ion-text
+        >
+        <ion-text
+          id="betInfo"
+          *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && bets.get(match.id).hasWin"
+          >{{ 'room.betWon' | translate }}</ion-text
+        >
+        <ion-text
+          id="betInfo"
+          *ngIf="isUserInRoom && isBetOnMatch.get(match.id) && !bets.get(match.id).hasWin && match.status === 'FINISHED'"
+          >{{ 'room.betLose' | translate }}</ion-text
+        >
       </ion-card>
     </ion-slide>
   </ion-slides>

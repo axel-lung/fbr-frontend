@@ -1,4 +1,4 @@
-import { Match } from "./match";
+import { Match } from '../../../models/match';
 
 export class Room {
   id: number | null;

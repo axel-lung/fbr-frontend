@@ -17,8 +17,9 @@ import { TranslateModule } from '@ngx-translate/core';
     IonicModule,
     RoomPageRoutingModule,
     SwiperModule,
-    TranslateModule
+    TranslateModule,
   ],
+  providers: [],
   declarations: [RoomPage]
 })
 export class RoomPageModule {}

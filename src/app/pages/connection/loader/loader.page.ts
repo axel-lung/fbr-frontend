@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { delay } from 'rxjs/operators';
+import { Store } from '@ngxs/store';
+import { empty, Observable } from 'rxjs';
+import { delay, map, tap } from 'rxjs/operators';
+import { RestService } from 'src/app/shared/rest.service';
+import { Room } from 'src/app/shared/rooms/models/room';
+import { RoomService } from 'src/app/shared/rooms/services/room.service';
+import { RoomFacadeService } from 'src/app/shared/rooms/state/room.facade';
+import { RoomSelect } from 'src/app/shared/rooms/state/room.select';
 
 @Component({
   selector: 'app-loader',
@@ -10,10 +17,12 @@ import { delay } from 'rxjs/operators';
 export class LoaderPage implements OnInit {
   public progress = 0;
   public loadingCount = 0;
-
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router
+    ) {}
 
   ngOnInit() {
+
 
     setTimeout(() => {
       setTimeout(() => {
@@ -28,10 +37,6 @@ export class LoaderPage implements OnInit {
 
       }, 50);
     }, 1500);
-
-
-
-
   }
 
 }

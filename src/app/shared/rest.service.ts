@@ -11,13 +11,14 @@ let httpOptions = {
   }),
 };
 export abstract class RestService<T, ID> {
-  token: string = '';
+  token = '';
   storage: NativeStorage;
   constructor(protected _http: HttpClient, protected _base: string) {}
 
   async start() {
     this.storage = new NativeStorage();
     await this.getStorage();
+    console.log('BEARER' + this.token);
     httpOptions.headers = httpOptions.headers.set('Authorization', 'Bearer ' + this.token);
   }
 

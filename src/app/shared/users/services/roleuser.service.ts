@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { RestService } from '../../rest.service';
 import { RoleUser } from '../models/role_user';
-import { RestService } from './rest.service';
 
 @Injectable({
   providedIn: 'root'

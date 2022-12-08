@@ -24,11 +24,15 @@
     <div id="gameList">
       <cdk-virtual-scroll-viewport itemSize="1">
         <ion-list lines="none">
-          <ion-item *cdkVirtualFor="let item of items">
-            <div id="created" class="gameItem" (click)="toRoom(room.id)">
+          <ion-item *cdkVirtualFor="let room of createdRooms$ | async">
+            <div
+              id="{{room.status}}"
+              class="gameItem"
+              (click)="toRoom(room.id)"
+            >
               <div class="gameInfo">
-                <ion-text>{{item}}</ion-text>
-                <ion-text id="createdStatus">test</ion-text>
+                <ion-text>{{room.name}}</ion-text>
+                <ion-text id="{{room.status}}Status">{{room.status}}</ion-text>
               </div>
               <ion-icon id="icon" name="arrow-forward"></ion-icon>
             </div>

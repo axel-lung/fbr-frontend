@@ -4,12 +4,12 @@
     <br />
     <div id="profile">
       <img src="../../../assets/icon/man_player.png" alt="man_player" />
-      <p>Axel</p>
+      <p>{{(userFacade.user$ | async).username}}</p>
     </div>
     <div id="main">
       <img src="../../../assets/icon/stadium.png" alt="stadium">
       <p>Stade 1</p>
-      <button>Trouver une partie</button>
+      <button (click)="findRoom()">Trouver une partie</button>
     </div>
   </div>
   <!-- <ion-card>

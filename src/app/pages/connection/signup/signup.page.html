@@ -22,9 +22,11 @@
         </div>
         <br>
         <ion-text>{{ 'signup.birthday' | translate }}</ion-text>
-        <input type="date" formControlName="birthday">
+        <ion-datetime value="2022-04-21T00:00:00"
+        max="2005-05-31T23:59:59"
+        formControlName="birthday"></ion-datetime>
         <div *ngIf="(birthday.dirty || birthday.touched) && birthday.errors" class="errors">
-          <span *ngIf="birthday.errors?.required">Username is required</span>
+          <span *ngIf="birthday.errors?.required">Birthday is required</span>
         </div>
         <br>
         <ion-text>{{ 'signup.password' | translate }}</ion-text>

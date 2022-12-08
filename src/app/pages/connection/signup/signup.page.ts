@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { Role } from 'src/app/models/role';
-import { RoleUser } from 'src/app/models/role_user';
-import { User } from 'src/app/models/user';
-import { RoleUserService } from 'src/app/services/roleuser.service';
-import { UserService } from 'src/app/services/user.service';
+import { Role } from 'src/app/shared/users/models/role';
+import { User } from 'src/app/shared/users/models/user';
+import { RoleUserService } from 'src/app/shared/users/services/roleuser.service';
+import { UserService } from 'src/app/shared/users/services/user.service';
 
 
 @Component({
